@@ -55,6 +55,7 @@ async function cargarNumeros() {
 
 // 🔥 REGISTRAR NÚMERO
 async function registrar(numero, elemento) {
+  // ✅ CORREGIDO: paréntesis en lugar de backtick
   const confirmar = confirm(`¿Confirmas el número ${numero}?`);
   if (!confirmar) return;
 
@@ -71,7 +72,7 @@ async function registrar(numero, elemento) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 
         numero: numero, 
-        nombre: nombre.trim(), 
+        nombre: nombre.trim()
       })
     });
 
@@ -94,6 +95,3 @@ Número: ${numero}
     console.error("Error:", error);
   }
 }
-
-// INICIAR
-cargarNumeros();
