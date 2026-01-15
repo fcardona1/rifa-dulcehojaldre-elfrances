@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbyglBkq1x_cjkpUQcYdd7BXSU6H7XwH4f9_BJ9EN3uxokE9Ncan1aTtr2pVST6jWmCuWg/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyeQCFM72yYKvvS2bPWSlGFiPuJ9_KNEvNVwUHpMPRtnxoT8XSE7cvYVbyw7nQE0n6jsQ/exec";
 const contenedor = document.getElementById("numeros");
 const loading = document.getElementById("loading");
 
