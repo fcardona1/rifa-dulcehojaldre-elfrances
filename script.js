@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbyeQCFM72yYKvvS2bPWSlGFiPuJ9_KNEvNVwUHpMPRtnxoT8XSE7cvYVbyw7nQE0n6jsQ/exec";
+const API_URL = "hhttps://script.google.com/macros/s/AKfycby0at88pOmKQ4Xi6kBDvtenHeA6t_txeO0VIkeH2Wck7NHh74y1qouDu3oJNp_aa8vUGA/exec";
 const contenedor = document.getElementById("numeros");
 const loading = document.getElementById("loading");
 
@@ -62,33 +62,51 @@ async function registrar(numero, elemento) {
     return;
   }
 
+  // Mostrar indicador de carga
+  elemento.style.opacity = "0.5";
+  elemento.style.pointerEvents = "none";
+
   try {
-    await fetch(API_URL, {
+    // SIN mode: "no-cors" para que funcione correctamente
+    const response = await fetch(API_URL, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ 
-        numero: numero, 
+      redirect: "follow",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        numero: numero,
         nombre: nombre.trim()
       })
     });
 
-    alert(`🎉 ¡Número registrado con éxito!
+    const result = await response.json();
+    
+    if (result.success) {
+      alert(`🎉 ¡Número registrado con éxito!
 
 Nombre: ${nombre}
 Número: ${numero}
 
 ¡Mucha suerte!`);
 
-    elemento.style.background = "#999";
-    elemento.style.color = "#fff";
-    elemento.style.pointerEvents = "none";
-    elemento.textContent = "X";
-    elemento.onclick = null;
+      // Bloquear número visualmente
+      elemento.style.background = "#999";
+      elemento.style.color = "#fff";
+      elemento.style.opacity = "1";
+      elemento.textContent = "X";
+      elemento.onclick = null;
+    } else {
+      throw new Error(result.error || "Error desconocido");
+    }
 
   } catch (error) {
-    alert("❌ Error al registrar. Intenta de nuevo.");
-    console.error("Error:", error);
+    alert("❌ Error al registrar: " + error.message);
+    console.error("Error completo:", error);
+    
+    // Restaurar número
+    elemento.style.opacity = "1";
+    elemento.style.pointerEvents = "auto";
   }
 }
 
