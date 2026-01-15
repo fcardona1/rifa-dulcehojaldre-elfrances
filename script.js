@@ -72,7 +72,6 @@ async function registrar(numero, elemento) {
       body: JSON.stringify({ 
         numero: numero, 
         nombre: nombre.trim(), 
-        telefono: telefono.trim() 
       })
     });
 
