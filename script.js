@@ -1,17 +1,32 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbyzxYC1Hj92FJYXN5QvgLNyc4SeuuIKC9tfp38uK-x1IIPou62-MZrxfUwlrvgG5ZbbUQ/exec";
-
 const contenedor = document.getElementById("numeros");
 
-for (let i = 1; i <= 99; i++) {
-  const n = document.createElement("div");
-  n.className = "numero";
-  n.innerText = i;
+/* 🔹 CARGAR NÚMEROS DESDE GOOGLE SHEETS */
+fetch(API_URL)
+  .then(res => res.json())
+  .then(data => {
+    data.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "numero";
 
-  n.onclick = () => registrar(i);
+      if (item.ocupado) {
+        div.classList.add("ocupado");
+        div.innerText = "OCUPADO";
+      } else {
+        div.classList.add("disponible");
+        div.innerText = item.numero;
+        div.onclick = () => registrar(item.numero);
+      }
 
-  contenedor.appendChild(n);
-}
+      contenedor.appendChild(div);
+    });
+  })
+  .catch(err => {
+    alert("❌ Error cargando números");
+    console.error(err);
+  });
 
+/* 🔹 REGISTRAR NÚMERO */
 function registrar(numero) {
   const nombre = prompt("Escribe tu nombre");
   if (!nombre) return;
@@ -21,8 +36,22 @@ function registrar(numero) {
 
   fetch(API_URL, {
     method: "POST",
-    body: JSON.stringify({ numero, nombre, telefono })
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      numero: numero.toString().padStart(2, '0'),
+      nombre,
+      telefono
+    })
   })
-  .then(() => alert("🎉 Número registrado con éxito"))
-  .catch(() => alert("❌ Error al registrar"));
+  .then(res => res.json())
+  .then(() => {
+    alert("🎉 Número registrado con éxito");
+    location.reload(); // 🔁 refresca y bloquea
+  })
+  .catch(err => {
+    alert("❌ Error al registrar");
+    console.error(err);
+  });
 }
