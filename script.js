@@ -64,12 +64,6 @@ async function registrar(numero, elemento) {
     return;
   }
 
-  const telefono = prompt("Escribe tu teléfono:");
-  if (!telefono || telefono.trim() === "") {
-    alert("El teléfono es obligatorio");
-    return;
-  }
-
   try {
     await fetch(API_URL, {
       method: "POST",
