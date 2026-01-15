@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rifa - Dulce Hojaldre & El Francés</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
 <body style="
   margin:0;
   padding:40px 20px;
@@ -5,54 +13,39 @@
   text-align:center;
 ">
 
-  <!-- TÍTULO -->
   <h1 style="
     font-family:'Cinzel', serif;
     color:#5a3620;
     font-size:40px;
     margin-bottom:15px;
-    text-align:center;
   ">
     DULCE HOJALDRE & PERFUMERÍA EL FRANCÉS
   </h1>
 
-  <!-- TEXTO INTRO -->
   <p style="
     max-width:720px;
     margin:0 auto 30px auto;
     font-family:'Playfair Display', serif;
     font-size:18px;
     color:#1c120c;
-    text-align:center;
     line-height:1.6;
   ">
     Queremos agradecerte por elegirnos.<br>
     Por eso creamos esta <strong>RIFA ESPECIAL</strong> para nuestros clientes fieles.
   </p>
 
-<!-- LOGOS -->
-<div style="
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:40px;
-  margin:35px 0 40px;
-  flex-wrap:wrap;
-">
-  <img
-    src="./assets/dulce_hojaldre.png"
-    alt="Dulce Hojaldre"
-    style="height:90px; object-fit:contain;"
-  >
+  <div style="
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin:35px 0 40px;
+    flex-wrap:wrap;
+  ">
+    <img src="./assets/dulce_hojaldre.png" alt="Dulce Hojaldre" style="height:90px; object-fit:contain;">
+    <img src="./assets/el_frances.png" alt="Perfumería El Francés" style="height:90px; object-fit:contain;">
+  </div>
 
-  <img
-    src="./assets/el_frances.png"
-    alt="Perfumería El Francés"
-    style="height:90px; object-fit:contain;"
-  >
-</div>
-
-  <!-- SUBTÍTULO -->
   <h3 style="
     margin:35px 0 20px;
     font-family:'Montserrat', sans-serif;
@@ -61,7 +54,10 @@
     Elige tu número de la suerte
   </h3>
 
-  <!-- CONTENEDOR DE NÚMEROS -->
+  <p id="loading" style="font-size:18px; color:#5a3620; margin:20px 0;">
+    Cargando números disponibles...
+  </p>
+
   <div id="numeros" style="
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(55px, 1fr));
@@ -70,7 +66,6 @@
     margin:0 auto;
   "></div>
 
-  <!-- SEPARADOR -->
   <hr style="
     margin:55px auto;
     max-width:700px;
@@ -79,106 +74,64 @@
     background:#cfa349;
   ">
 
-<!-- PREMIO -->
-<div style="
-  max-width:700px;
-  margin:0 auto;
-  font-family:'Montserrat', sans-serif;
-  color:#1c120c;
-  text-align:left;
-">
-
-  <!-- TÍTULO PREMIO -->
-  <h2 style="
-    font-family:'Cinzel', serif;
-    color:#5a3620;
-    font-size:30px;
-    margin-bottom:20px;
+  <div style="
+    max-width:700px;
+    margin:0 auto;
+    font-family:'Montserrat', sans-serif;
+    color:#1c120c;
+    text-align:left;
   ">
-    🎁 Premio
-  </h2>
+    <h2 style="
+      font-family:'Cinzel', serif;
+      color:#5a3620;
+      font-size:30px;
+      margin-bottom:20px;
+    ">
+      🎁 Premio
+    </h2>
 
-  <!-- LISTA -->
-  <ul style="
-    line-height:1.9;
-    font-size:17px;
-    margin-bottom:30px;
+    <ul style="line-height:1.9; font-size:17px; margin-bottom:30px;">
+      <li>Una loción de <strong>Perfumería El Francés</strong></li>
+      <li>Una caja de pasteles de <strong>Dulce Hojaldre</strong></li>
+    </ul>
+
+    <p style="
+      font-family:'Cinzel', serif;
+      font-size:30px;
+      color:#5a3620;
+      margin:30px 0 35px;
+      line-height:1.4;
+      font-weight:bold;
+      text-align:center;
+    ">
+      Gracias por ser parte de nuestra historia, por confiar en nuestros aromas y sabores.<br>
+      ¡Mucha suerte y que el premio te encuentre!
+    </p>
+  </div>
+
+  <hr style="
+    margin:55px auto;
+    max-width:700px;
+    border:0;
+    height:1px;
+    background:#cfa349;
   ">
-    <li>Una loción de <strong>Perfumería El Francés</strong></li>
-    <li>Una caja de pasteles de <strong>Dulce Hojaldre</strong></li>
-  </ul>
 
-  <!-- MENSAJE FINAL (MISMO TAMAÑO Y COLOR QUE PREMIO) -->
   <p style="
-  font-family:'Cinzel', serif;
-  font-size:30px;
-  color:#5a3620;
-  margin:30px 0 35px;
-  line-height:1.4;
-  font-weight:bold;
-  text-align:center;
+    font-size:14px;
+    color:#5a3620;
+    line-height:1.6;
+    text-align:center;
   ">
-    Gracias por ser parte de nuestra historia, por confiar en nuestros aromas y sabores.<br>
-    ¡Mucha suerte y que el premio te encuentre!
+    <strong>Organizador:</strong> Diego Cabezas<br><br>
+    ©2025 All Rights Reserved<br>
+    <strong>Tecnología con propósito.</strong><br>
+    <strong>Ejecución con precisión.</strong><br>
+    Desarrollado por <strong>ONYTEK</strong>
   </p>
 
-   <!-- SEPARADOR -->
-  <hr style="
-    margin:55px auto;
-    max-width:700px;
-    border:0;
-    height:1px;
-    background:#cfa349;
-  ">
-  
-<!-- FOOTER -->
-<p style="
-  font-size:14px;
-  color:#5a3620;
-  line-height:1.6;
-  text-align:center;
-">
-  <strong>Organizador:</strong> Diego Cabezas<br><br>
-  
-  ©2025 All Rights Reserved<br>
-  <strong>Tecnología con propósito.</strong><br>
-  <strong>Ejecución con precisión.</strong><br>
-  Desarrollado por <strong>ONYTEK</strong>
-</p>
-
-<script>
-const contenedor = document.getElementById("numeros");
-
-    for (let i = 1; i <= 99; i++) {
-      const num = document.createElement("div");
-      num.textContent = i;
-      num.style.cssText = `
-        width:55px;
-        height:55px;
-        border-radius:50%;
-        background:#1c120c;
-        color:#ffd369;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-family:'Montserrat', sans-serif;
-        font-weight:600;
-        cursor:pointer;
-        transition:transform .2s, box-shadow .2s;
-      `;
-
-      num.onmouseover = () => {
-        num.style.transform = "scale(1.1)";
-        num.style.boxShadow = "0 6px 15px rgba(0,0,0,.25)";
-      };
-
-      num.onmouseout = () => {
-        num.style.transform = "scale(1)";
-        num.style.boxShadow = "none";
-      };
-
-      contenedor.appendChild(num);
-    }
-  </script>
+  <!-- ⚠️ CARGA EL SCRIPT EXTERNO AQUÍ -->
+  <script src="./script.js"></script>
 
 </body>
+</html>
