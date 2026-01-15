@@ -1,5 +1,5 @@
 <script>
-  const API_URL = "https://script.google.com/macros/s/AKfycbyzxYC1Hj92FJYXN5QvgLNyc4SeuuIKC9tfp38uK-x1IIPou62-MZrxfUwlrvgG5ZbbUQ/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbxdS5giLmSwJPDMJ_OzAV062UhVYgdxeYThHHZLvLeOeipzJNAeoMuhcfGHJMayqpnLZg/exec";
 
   const contenedor = document.getElementById("numeros");
 
