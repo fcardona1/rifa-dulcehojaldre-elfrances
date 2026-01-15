@@ -2,7 +2,6 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyeQCFM72yYKvvS2bPWSlGF
 const contenedor = document.getElementById("numeros");
 const loading = document.getElementById("loading");
 
-// 🔥 CARGAR NÚMEROS AL INICIO
 async function cargarNumeros() {
   try {
     const response = await fetch(API_URL);
@@ -53,9 +52,7 @@ async function cargarNumeros() {
   }
 }
 
-// 🔥 REGISTRAR NÚMERO
 async function registrar(numero, elemento) {
-  // ✅ CORREGIDO: paréntesis en lugar de backtick
   const confirmar = confirm(`¿Confirmas el número ${numero}?`);
   if (!confirmar) return;
 
@@ -83,7 +80,6 @@ Número: ${numero}
 
 ¡Mucha suerte!`);
 
-    // BLOQUEAR NÚMERO
     elemento.style.background = "#999";
     elemento.style.color = "#fff";
     elemento.style.pointerEvents = "none";
@@ -95,3 +91,5 @@ Número: ${numero}
     console.error("Error:", error);
   }
 }
+
+cargarNumeros();
