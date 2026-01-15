@@ -1,7 +1,8 @@
 <script>
-  const API_URL = "https://script.google.com/macros/s/AKfycbxdS5giLmSwJPDMJ_OzAV062UhVYgdxeYThHHZLvLeOeipzJNAeoMuhcfGHJMayqpnLZg/exec";
-
+  const API_URL = "https://script.google.com/macros/s/AKfycbyzxYC1Hj92FJYXN5QvgLNyc4SeuuIKC9tfp38uK-x1IIPou62-MZrxfUwlrvgG5ZbbUQ/exec";
   const contenedor = document.getElementById("numeros");
+
+  alert("JS CARGADO OK");
 
   for (let i = 1; i <= 99; i++) {
     const num = document.createElement("div");
@@ -32,14 +33,15 @@
       num.style.boxShadow = "none";
     };
 
-    // 👉 CLICK FUNCIONAL
+    // 🔥 AQUÍ ESTABA LO QUE FALTABA
     num.onclick = () => registrar(i, num);
 
     contenedor.appendChild(num);
   }
 
   function registrar(numero, elemento) {
-    if (!confirm(`¿Confirmas el número ${numero}?`)) return;
+    const confirmar = confirm(`¿Confirmas el número ${numero}?`);
+    if (!confirmar) return;
 
     const nombre = prompt("Escribe tu nombre completo");
     if (!nombre) return;
@@ -49,18 +51,22 @@
 
     fetch(API_URL, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ numero, nombre, telefono })
     })
     .then(res => res.json())
     .then(() => {
       alert("🎉 Número registrado con éxito");
 
-      // 🔒 Bloqueo visual
-      elemento.style.background = "#cfa349";
-      elemento.style.color = "#5a3620";
-      elemento.style.cursor = "not-allowed";
-      elemento.onclick = null;
+      // 🔒 BLOQUEAR NÚMERO VISUALMENTE
+      elemento.style.background = "#999";
+      elemento.style.color = "#fff";
+      elemento.style.pointerEvents = "none";
+      elemento.textContent = "X";
     })
-    .catch(() => alert("❌ Error al registrar"));
+    .catch(err => {
+      alert("❌ Error al registrar");
+      console.error(err);
+    });
   }
 </script>
