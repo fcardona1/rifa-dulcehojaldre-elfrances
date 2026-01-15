@@ -2,7 +2,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbx0oNtLbmNxl98uaVpUwJVC
 
 const contenedor = document.getElementById("numeros");
 
-for (let i = 1; i <= 100; i++) {
+for (let i = 1; i <= 99; i++) {
   const n = document.createElement("div");
   n.className = "numero";
   n.innerText = i;
